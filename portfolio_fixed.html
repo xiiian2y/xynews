@@ -1,0 +1,792 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="zh-CN"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>张献元 | Xianyuan Zhang — Visual Designer &amp; Creative Director</title>
+<!-- Google Fonts: Playfair Display (Luxury Editorial Serif) & Plus Jakarta Sans / Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&amp;family=Noto+Serif+SC:wght@300;400;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            alabaster: '#F9F8F6',
+            charcoal: '#1A1A1A',
+            stonegray: '#6C6863',
+            champagne: '#D4AF37',
+            champagnelight: '#F1E7C4',
+            paperborder: 'rgba(26, 26, 26, 0.12)'
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', '"Noto Serif SC"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            cinzel: ['"Cinzel"', 'serif']
+          },
+          transitionDuration: {
+            '1500': '1500ms'
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: CustomStyles -->
+<style data-purpose="editorial-layout">
+    body {
+      background-color: #F9F8F6;
+      color: #1A1A1A;
+      overflow-x: hidden;
+      font-feature-settings: "palt" 1;
+    }
+    
+    /* Fine hairline border styling */
+    .border-hairline {
+      border-color: rgba(26, 26, 26, 0.12);
+    }
+    
+    .border-hairline-b {
+      border-bottom: 1px solid rgba(26, 26, 26, 0.12);
+    }
+
+    .border-hairline-t {
+      border-top: 1px solid rgba(26, 26, 26, 0.12);
+    }
+
+    /* Subtle editorial noise effect */
+    .bg-grid-delicate {
+      background-size: 60px 60px;
+      background-image: 
+        linear-gradient(to right, rgba(26, 26, 26, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(26, 26, 26, 0.03) 1px, transparent 1px);
+    }
+
+    /* Strict 0px radius styling for luxury geometry */
+    * {
+      border-radius: 0px !important;
+    }
+  
+    /* Responsive layout overrides */
+    html {
+      width: 100% !important;
+      height: auto !important;
+      overflow-x: hidden !important;
+      position: static !important;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
+      object-fit: contain;
+    }
+
+    main, header > div, footer > div {
+      width: min(100%, 1200px);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .img-container img {
+      height: auto !important;
+      min-height: 0;
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .grid-cols-1.md\\:grid-cols-2,
+      .grid-cols-1.sm\\:grid-cols-2,
+      .grid-cols-1.lg\\:grid-cols-12 {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+    }
+
+    @media (max-width: 767px) {
+      html, body {
+        overflow-x: hidden !important;
+      }
+
+      body {
+        width: 100%;
+      }
+
+      p, h1, h2, h3, h4, span, a, li {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
+      .container,
+      section,
+      main {
+        max-width: 100% !important;
+      }
+
+      .mobile-nav-link {
+        display: block;
+        width: 100%;
+      }
+
+      /* mobile cards single column */
+      .grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+</style>
+<style data-purpose="interactions">
+    /* High luxury slow-fade image interaction */
+    .editorial-img-container img {
+      filter: grayscale(90%) contrast(95%);
+      transform: scale(1.00);
+      transition: filter 1.4s cubic-bezier(0.16, 1, 0.3, 1), transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .editorial-img-container:hover img {
+      filter: grayscale(0%) contrast(100%);
+      transform: scale(1.035);
+    }
+
+    /* Custom hover underline animation */
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 1px;
+      bottom: -4px;
+      left: 0;
+      background-color: #D4AF37;
+      transition: width 0.35s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+  </style>
+<!-- END: CustomStyles -->
+</head>
+<body class="bg-alabaster font-sans selection:bg-champagne selection:text-charcoal antialiased bg-grid-delicate">
+<!-- BEGIN: StickyNavbar -->
+<!-- Top navigation bar with editorial typography and responsive mobile drawer -->
+<header class="sticky top-0 z-50 bg-[#F9F8F6]/90 backdrop-blur-md border-b border-hairline transition-all">
+<div class="max-w-[1200px] mx-auto px-6 h-20 flex items-center justify-between">
+<!-- Brand Logo & Identity -->
+<a class="group flex flex-col tracking-tight" href="#">
+<div class="flex items-center space-x-2">
+
+
+</div>
+<span class="text-[10px] tracking-[0.3em] uppercase text-stonegray mt-0.5">Visual Design &amp; AI Creative</span>
+</a>
+<!-- Desktop Navigation Menu -->
+<nav class="hidden md:flex items-center space-x-8 text-xs font-medium tracking-[0.18em] uppercase text-charcoal">
+<a class="nav-link py-1 hover:text-champagne transition-colors" href="#about">关于我 About</a>
+<a class="nav-link py-1 hover:text-champagne transition-colors" href="#skills">能力 Skills</a>
+<a class="nav-link py-1 hover:text-champagne transition-colors" href="#timeline">履历 Timeline</a>
+<a class="nav-link py-1 hover:text-champagne transition-colors" href="#portfolio">作品 Portfolio</a>
+<a class="px-5 py-2.5 border border-charcoal hover:bg-charcoal hover:text-alabaster transition-all duration-300" href="#contact">
+          联系 Contact
+        </a>
+</nav>
+<!-- Mobile Hamburger Button -->
+<div class="md:hidden flex items-center">
+<button aria-label="Toggle navigation menu" class="p-2 text-charcoal focus:outline-none" data-purpose="toggle-navigation" id="mobile-menu-btn">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M4 6h16M4 12h16M4 18h16" id="menu-icon-bars" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5"></path>
+<path class="hidden" d="M6 18L18 6M6 6l12 12" id="menu-icon-close" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- Mobile Drawer Dropdown -->
+<div class="hidden md:hidden border-t border-hairline bg-[#F9F8F6] px-6 py-6 transition-all duration-300" id="mobile-menu">
+<nav class="flex flex-col space-y-4 text-xs font-medium tracking-[0.2em] uppercase text-charcoal">
+<a class="mobile-nav-link py-2 border-b border-hairline" href="#about">关于我 About</a>
+<a class="mobile-nav-link py-2 border-b border-hairline" href="#skills">个人技能 Skills</a>
+<a class="mobile-nav-link py-2 border-b border-hairline" href="#timeline">履历时间轴 Timeline</a>
+<a class="mobile-nav-link py-2 border-b border-hairline" href="#portfolio">作品展示 Portfolio</a>
+<a class="mobile-nav-link py-3 mt-2 text-center bg-charcoal text-alabaster tracking-widest" href="#contact">联系我 Contact</a>
+</nav>
+</div>
+</header>
+<!-- END: StickyNavbar -->
+<main class="max-w-[1200px] mx-auto px-6">
+<!-- BEGIN: HeroSection -->
+<!-- Editorial style Hero banner featuring background visual artwork with luxury typography -->
+<section class="pt-16 pb-20 border-b border-hairline relative" id="about">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Left: Text & Bio Content -->
+<div class="lg:col-span-7 space-y-8 z-10">
+<div class="inline-flex items-center space-x-3 text-xs tracking-[0.3em] uppercase text-stonegray">
+<span class="w-8 h-[1px] bg-champagne"></span>
+
+</div>
+<div class="space-y-4">
+<h1 class="font-serif text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-charcoal leading-[1.08]">
+              张献元
+              <span class="block font-cinzel text-3xl sm:text-4xl md:text-5xl font-normal text-stonegray/80 mt-2 tracking-wider">
+                XIANYUAN ZHANG
+              </span>
+</h1>
+<p class="font-serif italic text-lg sm:text-xl text-stonegray leading-relaxed max-w-xl">
+              “懂设计、内容、企业运营和项目协调的综合型视觉探索者”
+            </p>
+</div>
+<!-- Quick Information Bar -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 py-6 border-y border-hairline text-xs">
+<div>
+<span class="block text-stonegray text-[10px] uppercase tracking-widest">从业经验 Experience</span>
+<span class="font-medium text-charcoal text-sm mt-0.5 block">7+ 年行业积淀</span>
+</div>
+<div>
+<span class="block text-stonegray text-[10px] uppercase tracking-widest">常驻地点 Base</span>
+<span class="font-medium text-charcoal text-sm mt-0.5 block">中国 · 云南昆明</span>
+</div>
+<div>
+<span class="block text-stonegray text-[10px] uppercase tracking-widest">联系电话 Tel</span>
+<span class="font-medium text-charcoal text-sm mt-0.5 block">18214583021</span>
+</div>
+<div>
+<span class="block text-stonegray text-[10px] uppercase tracking-widest">电子邮箱 Mail</span>
+<span class="font-medium text-charcoal text-sm mt-0.5 block truncate" title="xiany_2y@163.com">xiany_2y@163.com</span>
+</div>
+</div>
+<!-- Academic & Education Box -->
+<div class="bg-stone-50/70 p-6 border-l-2 border-champagne space-y-3">
+<div class="flex flex-wrap items-baseline justify-between gap-2">
+<h3 class="font-serif text-lg font-bold text-charcoal">昆明理工大学 · 视觉传达设计专业</h3>
+<span class="text-xs tracking-wider text-stonegray font-mono">2013.08 — 2017.07 | 本科 · 学士学位</span>
+</div>
+<ul class="text-xs text-stonegray leading-relaxed space-y-2 list-none">
+<li class="flex items-start">
+<span class="text-champagne mr-2 font-serif">/</span>
+<span class=""><strong class="text-charcoal font-medium">研究方向：</strong>视觉传达设计、品牌VI规范系统、版式美学与图像美化、AIGC 视觉生成与画面调优。</span>
+</li>
+<li class="flex items-start">
+<span class="text-champagne mr-2 font-serif">/</span>
+<span class=""><strong class="text-charcoal font-medium">学术与专业成果：</strong>系统掌握视觉设计专业功底，具备扎实的美术素养与设计思维，熟练运用线下VI、排版及广告设计、AI驱动的产品体验与视觉定义。</span>
+</li>
+</ul>
+</div>
+<!-- Action Links -->
+<div class="flex flex-wrap gap-4 pt-2">
+
+
+</div>
+</div>
+<!-- Right: Atmospheric Hero Artwork Display -->
+<div class="lg:col-span-5 relative">
+<div class="relative editorial-img-container overflow-hidden border border-hairline shadow-sm">
+
+<img alt="主页背景图 - 抽象艺术视觉" class="w-full h-[520px] object-cover object-center" src="https://aka.doubaocdn.com/s/HM8VdXQjze">
+<div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-charcoal/80 via-charcoal/30 to-transparent z-20 text-alabaster">
+<span class="text-[10px] tracking-[0.3em] uppercase block text-champagne">Visual Concept</span>
+<p class="font-serif text-sm tracking-wide mt-1">信息整理+视觉+文档+流程</p>
+</div>
+</div>
+<!-- Fine decorative typography block -->
+<div class="hidden sm:block absolute -bottom-6 -right-6 font-cinzel text-7xl font-bold text-stonegray/10 select-none -z-0">
+            ZHANG
+          </div>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: SkillsSection -->
+<!-- Detailed breakdown of core competencies, software toolchains, and AI methodologies -->
+<section class="py-20 border-b border-hairline" id="skills">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+<div>
+<span class="text-xs font-cinzel tracking-[0.3em] uppercase text-champagne block mb-2">01 / Competencies</span>
+<h2 class="font-serif text-3xl sm:text-4xl text-charcoal font-bold tracking-tight">专业能力与技术体系</h2>
+</div>
+<p class="text-stonegray text-xs sm:text-sm max-w-md mt-4 md:mt-0 font-light leading-relaxed">
+          打通从概念发散、AI生成构想、矢量与排版落地，直至印前校色与多媒体分发的高标准商业全链路。
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Skill Column 1: AIGC & Creative -->
+<div class="border border-hairline p-8 bg-[#F9F8F6] relative group hover:border-charcoal transition-colors duration-500">
+<div class="text-xs font-mono text-stonegray/70 tracking-widest mb-6">01.01 — AI &amp; INNOVATION</div>
+<h3 class="font-serif text-xl font-bold text-charcoal mb-4 flex items-center justify-between">
+<span class="">AI 视觉与产品赋能</span>
+<span class="w-2 h-2 bg-champagne"></span>
+</h3>
+<p class="text-xs text-stonegray leading-relaxed mb-6">
+            将前沿 AI 生成技术深度融入设计工作流与产品视觉规划，精通通过精准 Prompt 工程及主流 AIGC 工具开展高效率创意探索、高质量图像合成与多场景 IP 衍生创作。
+          </p>
+<div class="pt-4 border-t border-hairline">
+<span class="text-[10px] tracking-widest uppercase text-stonegray block mb-2 font-mono">Core Focus</span>
+<div class="flex flex-wrap gap-2 text-[11px] text-charcoal">
+<span class="px-2 py-1 bg-stone-200/50">Midjourney / SD</span>
+<span class="px-2 py-1 bg-stone-200/50">Prompt Engineering</span>
+<span class="px-2 py-1 bg-stone-200/50">IP 概念衍生</span>
+<span class="px-2 py-1 bg-stone-200/50">视觉画面调优</span>
+</div>
+</div>
+</div>
+<!-- Skill Column 2: Commercial & Branding -->
+<div class="border border-hairline p-8 bg-[#F9F8F6] relative group hover:border-charcoal transition-colors duration-500">
+<div class="text-xs font-mono text-stonegray/70 tracking-widest mb-6">01.02 — COMMERCIAL VI &amp; EDITORIAL</div>
+<h3 class="font-serif text-xl font-bold text-charcoal mb-4 flex items-center justify-between">
+<span class="">品牌全案与版式美学</span>
+<span class="w-2 h-2 bg-champagne"></span>
+</h3>
+<p class="text-xs text-stonegray leading-relaxed mb-6">
+            熟练构建从平面美学到印刷前校对、书籍版式设计、品牌 VI 系统的完整全链路设计流程。严谨把控网格系统、字体层次、纸张色彩管理及高端画册工艺落地。
+          </p>
+<div class="pt-4 border-t border-hairline">
+<span class="text-[10px] tracking-widest uppercase text-stonegray block mb-2 font-mono">Expertise</span>
+<div class="flex flex-wrap gap-2 text-[11px] text-charcoal">
+<span class="px-2 py-1 bg-stone-200/50">企业级 VI 系统规范</span>
+<span class="px-2 py-1 bg-stone-200/50">医疗/企业专业内刊</span>
+<span class="px-2 py-1 bg-stone-200/50">网点与印刷校对</span>
+<span class="px-2 py-1 bg-stone-200/50">文旅商业海报</span>
+</div>
+</div>
+</div>
+<!-- Skill Column 3: Operation & Tools -->
+<div class="border border-hairline p-8 bg-[#F9F8F6] relative group hover:border-charcoal transition-colors duration-500">
+<div class="text-xs font-mono text-stonegray/70 tracking-widest mb-6">01.03 — BUSINESS &amp; TOOLCHAIN</div>
+<h3 class="font-serif text-xl font-bold text-charcoal mb-4 flex items-center justify-between">
+<span class="">商业运营与工具链</span>
+<span class="w-2 h-2 bg-champagne"></span>
+</h3>
+<p class="text-xs text-stonegray leading-relaxed mb-6">
+            基于 7年+ 综合商业实战经验，具备敏锐的产品洞察与跨部门统筹能力，熟练掌控预算与运营节点，能将高阶视觉形态高效转化为商业价值与市场落地产物。
+          </p>
+<div class="pt-4 border-t border-hairline">
+<span class="text-[10px] tracking-widest uppercase text-stonegray block mb-2 font-mono">Software &amp; Management</span>
+<div class="flex flex-wrap gap-2 text-[11px] text-charcoal">
+<span class="px-2 py-1 bg-stone-200/50">Adobe Photoshop</span>
+<span class="px-2 py-1 bg-stone-200/50">Illustrator</span>
+<span class="px-2 py-1 bg-stone-200/50">InDesign</span>
+<span class="px-2 py-1 bg-stone-200/50">Premiere Pro</span>
+<span class="px-2 py-1 bg-stone-200/50">新媒体矩阵运营</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: SkillsSection -->
+<!-- BEGIN: CareerTimelineSection -->
+<!-- Chronological career path and major milestones in luxury editorial format -->
+<section class="py-20 border-b border-hairline" id="timeline">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+<div>
+<span class="text-xs font-cinzel tracking-[0.3em] uppercase text-champagne block mb-2">02 / Experience</span>
+<h2 class="font-serif text-3xl sm:text-4xl text-charcoal font-bold tracking-tight">履历与项目历程</h2>
+</div>
+<span class="text-xs text-stonegray font-mono mt-2 md:mt-0 tracking-widest uppercase">Chronological Milestones (2016 — Present)</span>
+</div>
+<div class="space-y-0 divide-y divide-hairline border-y border-hairline">
+<!-- Entry 1: 空集项目工作室 -->
+<article class="py-8 grid grid-cols-1 lg:grid-cols-12 gap-6 hover:bg-stone-50/50 transition-colors px-4 -mx-4">
+<div class="lg:col-span-3">
+<span class="font-mono text-xs font-semibold tracking-wider text-charcoal">2023.02 — 至今</span>
+<span class="block text-[11px] text-champagne tracking-widest uppercase mt-1">Studio Project Leader</span>
+</div>
+<div class="lg:col-span-4">
+<h3 class="font-serif text-lg font-bold text-charcoal">空集工作室</h3>
+<p class="text-xs text-stonegray mt-0.5">营销策划项目组长</p>
+</div>
+<div class="lg:col-span-5 text-xs text-stonegray leading-relaxed space-y-2">
+<p class="">
+              负责原创视频的制作和多平台社交矩阵运营。运营平台涵盖 <strong class="text-charcoal font-medium">YouTube、Facebook、Instagram、X、bilibili、小红书</strong> 等 6 个主流媒体渠道，并在 1 周内独立完成从 0 到 1 的体系搭建。
+            </p>
+<p class="">
+              基于对国内抖音以及海外 YouTube 细分领域的深度剖析，制作原创视觉内容与品牌视频，累计播放量突破 <strong class="text-charcoal font-medium">10万+</strong>。
+            </p>
+</div>
+</article>
+<!-- Entry 2: 云南省交通投资建设集团 -->
+<article class="py-8 grid grid-cols-1 lg:grid-cols-12 gap-6 hover:bg-stone-50/50 transition-colors px-4 -mx-4">
+<div class="lg:col-span-3">
+<span class="font-mono text-xs font-semibold tracking-wider text-charcoal">2020.09 — 2023.01</span>
+<span class="block text-[11px] text-stonegray tracking-widest uppercase mt-1">Management &amp; Logistics</span>
+</div>
+<div class="lg:col-span-4">
+<h3 class="font-serif text-lg font-bold text-charcoal">云南省交通投资建设集团有限公司</h3>
+<p class="text-xs text-stonegray mt-0.5">站点管理人员</p>
+</div>
+<div class="lg:col-span-5 text-xs text-stonegray leading-relaxed">
+<p class="">
+              统筹组织协调数据意识与规范化流程管理：全面负责财务预算、物资储备、收入审核与财务报表汇报。监管办公台账、OA 标准化流程运转、员工人事档案维护及大型站点日常综合管理协助。
+            </p>
+</div>
+</article>
+<!-- Entry 3: 上海卡瓦集团 -->
+<article class="py-8 grid grid-cols-1 lg:grid-cols-12 gap-6 hover:bg-stone-50/50 transition-colors px-4 -mx-4">
+<div class="lg:col-span-3">
+<span class="font-mono text-xs font-semibold tracking-wider text-charcoal">2019.04 — 2020.08</span>
+<span class="block text-[11px] text-champagne tracking-widest uppercase mt-1">Editorial Lead</span>
+</div>
+<div class="lg:col-span-4">
+<h3 class="font-serif text-lg font-bold text-charcoal">上海卡瓦集团&nbsp;</h3>
+<p class="text-xs text-stonegray mt-0.5">企业内刊设计（项目组长）</p>
+</div>
+<div class="lg:col-span-5 text-xs text-stonegray leading-relaxed">
+<p class="">
+              项目推进与高端客户沟通交付质控：独立完成企业内部刊物宣传册、医疗专业学术 Case Book 的高精密版式与视觉优化；与行业关键客户深入交流版式内容、推进严格审核稿件，并全程把控印刷前色彩、套印及材料校对。
+            </p>
+</div>
+</article>
+<!-- Entry 4: 丽江华洋旅业 -->
+<article class="py-8 grid grid-cols-1 lg:grid-cols-12 gap-6 hover:bg-stone-50/50 transition-colors px-4 -mx-4">
+<div class="lg:col-span-3">
+<span class="font-mono text-xs font-semibold tracking-wider text-charcoal">2018.04 — 2019.03</span>
+<span class="block text-[11px] text-stonegray tracking-widest uppercase mt-1">Graphic Designer</span>
+</div>
+<div class="lg:col-span-4">
+<h3 class="font-serif text-lg font-bold text-charcoal">华洋旅业</h3>
+<p class="text-xs text-stonegray mt-0.5">平面设计师</p>
+</div>
+<div class="lg:col-span-5 text-xs text-stonegray leading-relaxed">
+<p class="">
+              设计策略与视觉系统需求转译：围绕文旅中高端客户需求规划旅游产品线全套视觉风格、色彩搭配与摄影出图规范；深度参与 VI 落地、集团官网视觉维护、商业海报与微信公众号排版美化。
+            </p>
+</div>
+</article>
+<!-- Entry 5: 临沧华仁集团 -->
+<article class="py-8 grid grid-cols-1 lg:grid-cols-12 gap-6 hover:bg-stone-50/50 transition-colors px-4 -mx-4">
+<div class="lg:col-span-3">
+<span class="font-mono text-xs font-semibold tracking-wider text-charcoal">2017.08 — 2018.03</span>
+<span class="block text-[11px] text-stonegray tracking-widest uppercase mt-1">Visual Creative</span>
+</div>
+<div class="lg:col-span-4">
+<h3 class="font-serif text-lg font-bold text-charcoal">华仁集团</h3>
+<p class="text-xs text-stonegray mt-0.5">平面设计师</p>
+</div>
+<div class="lg:col-span-5 text-xs text-stonegray leading-relaxed">
+<p class="">
+              内容视觉摄影与商业广告宣发：全面负责自媒体推文封面与内页配图设计、大幅海报广告排版、IP 图像处理；执笔文案脚本与图片内容创作，并长期承担集团重大线下商务活动的拍摄及后期影像精修。
+            </p>
+</div>
+</article>
+<!-- Entry 6: 云南优选广告 -->
+<article class="py-8 grid grid-cols-1 lg:grid-cols-12 gap-6 hover:bg-stone-50/50 transition-colors px-4 -mx-4">
+<div class="lg:col-span-3">
+<span class="font-mono text-xs font-semibold tracking-wider text-charcoal">2016.10 — 2017.02</span>
+<span class="block text-[11px] text-stonegray tracking-widest uppercase mt-1">Design Assistant</span>
+</div>
+<div class="lg:col-span-4">
+<h3 class="font-serif text-lg font-bold text-charcoal">云南优选广告</h3>
+<p class="text-xs text-stonegray mt-0.5">设计师助理 (实习)</p>
+</div>
+<div class="lg:col-span-5 text-xs text-stonegray leading-relaxed">
+<p class="">
+              扎实的基础视觉与多项目协作落地：协助资深主创设计师完成客户标志 Logo 设计、VI 品牌手册规范、产品包装结构、宣传画册装帧以及定制网页界面设计订单的执行交付。
+            </p>
+</div>
+</article>
+</div>
+</section>
+<!-- END: CareerTimelineSection -->
+<!-- BEGIN: PortfolioShowcaseSection -->
+<!-- Balanced portfolio section cleanly divided into Horizontal and Vertical layouts -->
+<section class="py-20 border-b border-hairline" id="portfolio">
+<!-- Section Title & Overview -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+<div>
+<span class="text-xs font-cinzel tracking-[0.3em] uppercase text-champagne block mb-2">03 / Works Archive</span>
+<h2 class="font-serif text-3xl sm:text-4xl text-charcoal font-bold tracking-tight">精选作品展示</h2>
+</div>
+<p class="text-stonegray text-xs sm:text-sm max-w-md mt-4 md:mt-0 font-light leading-relaxed">
+          收录商业 VI、医疗刊物、艺术概念摄影、文创延伸及商业文旅海报等代表性设计案例。
+        </p>
+</div>
+<!-- SUBSECTION A: Horizontal Projects (横版作品) -->
+<div class="mb-24">
+<div class="flex items-center space-x-4 mb-8 pb-3 border-b border-hairline">
+<h3 class="font-serif text-xl font-bold text-charcoal">横版专题 · 品牌规范与概念摄影</h3>
+
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Horizontal Work 1: VI 品牌与纪念文创设计 -->
+<figure class="group border border-hairline bg-[#F9F8F6] p-4 flex flex-col justify-between">
+<div class="editorial-img-container overflow-hidden bg-stone-100 aspect-[16/11]">
+<img alt="VI 品牌与纪念文创设计" class="w-full h-full object-cover" loading="lazy" src="https://aka.doubaocdn.com/s/uTjixtuRVx">
+</div>
+<figcaption class="pt-4 flex items-start justify-between">
+<div>
+<span class="text-[10px] tracking-widest uppercase text-champagne font-mono block">Brand Identity &amp; Culture</span>
+<h4 class="font-serif text-base font-bold text-charcoal group-hover:text-champagne transition-colors mt-0.5">VI 品牌与纪念文创设计</h4>
+<p class="text-xs text-stonegray mt-1 font-light">空间几何结构与书籍刊物的严谨网格实验</p>
+</div>
+<span class="text-xs font-mono text-stonegray/60">01</span>
+</figcaption>
+</figure>
+<!-- Horizontal Work 2: 医疗专业书籍排版与严格印刷校对 -->
+<figure class="group border border-hairline bg-[#F9F8F6] p-4 flex flex-col justify-between">
+<div class="editorial-img-container overflow-hidden bg-stone-100 aspect-[16/11]">
+<img alt="医疗专业书籍排版、严谨版式控制与印刷校对" class="w-full h-full object-cover" loading="lazy" src="https://aka.doubaocdn.com/s/CsztYRuAfd">
+</div>
+<figcaption class="pt-4 flex items-start justify-between">
+<div>
+<span class="text-[10px] tracking-widest uppercase text-champagne font-mono block">Medical Editorial &amp; Pre-press</span>
+<h4 class="font-serif text-base font-bold text-charcoal group-hover:text-champagne transition-colors mt-0.5">医疗专业书籍排版与印刷校对</h4>
+<p class="text-xs text-stonegray mt-1 font-light">Nobel Biocare Case Book 严苛医学案例版式与色彩控制</p>
+</div>
+<span class="text-xs font-mono text-stonegray/60">02</span>
+</figcaption>
+</figure>
+<!-- Horizontal Work 3: 探索当代视觉概念，极简主义构图与视觉锤击 (粉色纸杯) -->
+<figure class="group border border-hairline bg-[#F9F8F6] p-4 flex flex-col justify-between">
+<div class="editorial-img-container overflow-hidden bg-stone-100 aspect-[16/11]">
+<img alt="探索当代视觉概念，极简主义构图与视觉锤击" class="w-full h-full object-cover" loading="lazy" src="https://aka.doubaocdn.com/s/dUxr20QpD2">
+</div>
+<figcaption class="pt-4 flex items-start justify-between">
+<div>
+<span class="text-[10px] tracking-widest uppercase text-champagne font-mono block">Contemporary Visual Hammer</span>
+<h4 class="font-serif text-base font-bold text-charcoal group-hover:text-champagne transition-colors mt-0.5">当代视觉锤概念：动态聚焦与张力</h4>
+<p class="text-xs text-stonegray mt-1 font-light">自然野外与人工造物的超现实反差构图</p>
+</div>
+<span class="text-xs font-mono text-stonegray/60">03</span>
+</figcaption>
+</figure>
+<!-- Horizontal Work 4: 商业活动拍摄与宣传图像后期 -->
+<figure class="group border border-hairline bg-[#F9F8F6] p-4 flex flex-col justify-between">
+<div class="editorial-img-container overflow-hidden bg-stone-100 aspect-[16/11]">
+<img alt="商业活动拍摄与宣传图像后期" class="w-full h-full object-cover" loading="lazy" src="https://aka.doubaocdn.com/s/8Rh5LupVDt">
+</div>
+<figcaption class="pt-4 flex items-start justify-between">
+<div>
+<span class="text-[10px] tracking-widest uppercase text-champagne font-mono block">Commercial Photography</span>
+<h4 class="font-serif text-base font-bold text-charcoal group-hover:text-champagne transition-colors mt-0.5">商业静物摄影与光学质感后期</h4>
+<p class="text-xs text-stonegray mt-1 font-light">玻璃器皿的高纯度通透度控制与光影折射表现</p>
+</div>
+<span class="text-xs font-mono text-stonegray/60">04</span>
+</figcaption>
+</figure>
+<!-- Horizontal Work 5: 基于地方历史文化的视觉符号萃取与文创延伸 -->
+<figure class="group border border-hairline bg-[#F9F8F6] p-4 flex flex-col justify-between">
+<div class="editorial-img-container overflow-hidden bg-stone-100 aspect-[16/11]">
+<img alt="基于地方历史文化的视觉符号萃取与文创延伸" class="w-full h-full object-cover" loading="lazy" src="https://aka.doubaocdn.com/s/eN3TwqNyjo">
+</div>
+<figcaption class="pt-4 flex items-start justify-between">
+<div>
+<span class="text-[10px] tracking-widest uppercase text-champagne font-mono block">Cultural IP Extension</span>
+<h4 class="font-serif text-base font-bold text-charcoal group-hover:text-champagne transition-colors mt-0.5">历史文化符号萃取与文创产品开发</h4>
+<p class="text-xs text-stonegray mt-1 font-light">拓本古籍、封套、手袋与衍生唱片设计的当代演绎</p>
+</div>
+<span class="text-xs font-mono text-stonegray/60">05</span>
+</figcaption>
+</figure>
+<!-- Horizontal Work 6: 概念摄影 -->
+<figure class="group border border-hairline bg-[#F9F8F6] p-4 flex flex-col justify-between">
+<div class="editorial-img-container overflow-hidden bg-stone-100 aspect-[16/11]">
+<img alt="概念摄影 - 植物静物" class="w-full h-full object-cover" loading="lazy" src="https://aka.doubaocdn.com/s/zczSkwVDgU">
+</div>
+<figcaption class="pt-4 flex items-start justify-between">
+<div>
+<span class="text-[10px] tracking-widest uppercase text-champagne font-mono block">Artistic Concept</span>
+<h4 class="font-serif text-base font-bold text-charcoal group-hover:text-champagne transition-colors mt-0.5">概念摄影 · 枯木荣光与自然情绪</h4>
+<p class="text-xs text-stonegray mt-1 font-light">自然肌理光影与时间沉淀的诗意静物捕捉</p>
+</div>
+<span class="text-xs font-mono text-stonegray/60">06</span>
+</figcaption>
+</figure>
+</div>
+</div>
+<!-- SUBSECTION B: Vertical Projects (竖版作品) -->
+<div>
+<div class="flex items-center space-x-4 mb-8 pb-3 border-b border-hairline">
+<h3 class="font-serif text-xl font-bold text-charcoal">竖版专题 · 海报排版与刊物装帧</h3>
+<span class="text-xs text-stonegray font-mono uppercase tracking-widest">[ 6 Selected Editorial Posters ]</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Vertical Work 1: 文旅商业海报 · 大寒 -->
+<figure class="group border border-hairline bg-[#F9F8F6] p-4 flex flex-col justify-between">
+<div class="editorial-img-container overflow-hidden bg-stone-100 aspect-[3/4.2]">
+<img alt="文旅商业海报排版与美学表达 · 大寒" class="w-full h-full object-cover" loading="lazy" src="https://aka.doubaocdn.com/s/YoU1Zd3Ivm">
+</div>
+<figcaption class="pt-4">
+<span class="text-[10px] tracking-widest uppercase text-champagne font-mono block">Solar Terms Poster</span>
+<h4 class="font-serif text-sm sm:text-base font-bold text-charcoal group-hover:text-champagne transition-colors mt-0.5">商业节气海报 · 大寒</h4>
+<p class="text-xs text-stonegray mt-1">朱砂红与冰雪素白的对撞版式与诗意文字排版</p>
+</figcaption>
+</figure>
+<!-- Vertical Work 2: 文旅商业海报 · 立春 -->
+<figure class="group border border-hairline bg-[#F9F8F6] p-4 flex flex-col justify-between">
+<div class="editorial-img-container overflow-hidden bg-stone-100 aspect-[3/4.2]">
+<img alt="文旅商业海报排版与美学表达 · 立春" class="w-full h-full object-cover" loading="lazy" src="https://aka.doubaocdn.com/s/hhXP75aGUU">
+</div>
+<figcaption class="pt-4">
+<span class="text-[10px] tracking-widest uppercase text-champagne font-mono block">Seasonal Visual Expression</span>
+<h4 class="font-serif text-sm sm:text-base font-bold text-charcoal group-hover:text-champagne transition-colors mt-0.5">商业节气海报 · 立春</h4>
+<p class="text-xs text-stonegray mt-1">撕裂质感与早春景致的破冬图形意象表达</p>
+</figcaption>
+</figure>
+<!-- Vertical Work 3: 当代视觉概念 · 极简主义构图与流体色彩 -->
+<figure class="group border border-hairline bg-[#F9F8F6] p-4 flex flex-col justify-between">
+<div class="editorial-img-container overflow-hidden bg-stone-100 aspect-[3/4.2]">
+<img alt="探索当代视觉概念，极简主义构图与视觉锤击1" class="w-full h-full object-cover" loading="lazy" src="https://aka.doubaocdn.com/s/KO0t25NM2k">
+</div>
+<figcaption class="pt-4">
+<span class="text-[10px] tracking-widest uppercase text-champagne font-mono block">Experimental Concept</span>
+<h4 class="font-serif text-sm sm:text-base font-bold text-charcoal group-hover:text-champagne transition-colors mt-0.5">流体霓虹与视觉锤击探索</h4>
+<p class="text-xs text-stonegray mt-1">高饱和度光影与未来主义质感流态视觉实验</p>
+</figcaption>
+</figure>
+<!-- Vertical Work 4: 企业集团内刊与书籍版式设计 -->
+<figure class="group border border-hairline bg-[#F9F8F6] p-4 flex flex-col justify-between">
+<div class="editorial-img-container overflow-hidden bg-stone-100 aspect-[3/4.2]">
+<img alt="企业集团内刊与书籍版式设计" class="w-full h-full object-cover" loading="lazy" src="https://aka.doubaocdn.com/s/jDfPFEgK5i">
+</div>
+<figcaption class="pt-4">
+<span class="text-[10px] tracking-widest uppercase text-champagne font-mono block">Magazine Cover Layout</span>
+<h4 class="font-serif text-sm sm:text-base font-bold text-charcoal group-hover:text-champagne transition-colors mt-0.5">卡瓦生活 (KAVO LIFE) 春季刊</h4>
+<p class="text-xs text-stonegray mt-1">清新插画与现代字体设计的集团企业刊物封面</p>
+</figcaption>
+</figure>
+<!-- Vertical Work 5: 旅游产品线海报与视觉宣传 · 丽江纯玩自由行 -->
+<figure class="group border border-hairline bg-[#F9F8F6] p-4 flex flex-col justify-between">
+<div class="editorial-img-container overflow-hidden bg-stone-100 aspect-[3/4.2]">
+<img alt="旅游产品线海报与视觉宣传 · 丽江" class="w-full h-full object-cover" loading="lazy" src="https://aka.doubaocdn.com/s/s82dmkXu3D">
+</div>
+<figcaption class="pt-4">
+<span class="text-[10px] tracking-widest uppercase text-champagne font-mono block">Commercial Tourism Line</span>
+<h4 class="font-serif text-sm sm:text-base font-bold text-charcoal group-hover:text-champagne transition-colors mt-0.5">丽江纯玩自由行宣发海报</h4>
+<p class="text-xs text-stonegray mt-1">温润质朴的居家光影氛围与高格调民宿宣发</p>
+</figcaption>
+</figure>
+<!-- Vertical Work 6: 旅游产品线海报与视觉宣传 · 南海日记 -->
+<figure class="group border border-hairline bg-[#F9F8F6] p-4 flex flex-col justify-between">
+<div class="editorial-img-container overflow-hidden bg-stone-100 aspect-[3/4.2]">
+<img alt="旅游产品线海报与视觉宣传 · 南海日记" class="w-full h-full object-cover" loading="lazy" src="https://aka.doubaocdn.com/s/YIoF2KKTvB">
+</div>
+<figcaption class="pt-4">
+<span class="text-[10px] tracking-widest uppercase text-champagne font-mono block">Tropical Commercial Graphic</span>
+<h4 class="font-serif text-sm sm:text-base font-bold text-charcoal group-hover:text-champagne transition-colors mt-0.5">南海日记 · 特惠三亚游海报</h4>
+<p class="text-xs text-stonegray mt-1">热带色彩碰撞与核心卖点层级清晰的版式呈现</p>
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<!-- END: PortfolioShowcaseSection -->
+<!-- BEGIN: PhilosophySection -->
+<!-- Editorial statement of design values and aesthetic principles -->
+<section class="py-20 border-b border-hairline">
+<div class="max-w-3xl mx-auto text-center space-y-6">
+<span class="text-xs font-cinzel tracking-[0.35em] uppercase text-champagne block">Design Philosophy</span>
+<blockquote class="font-serif text-2xl sm:text-3xl text-charcoal italic leading-snug">
+          “注重思路，重视逻辑。以扎实的视觉设计功底与严谨的理路结构，让每一张海报、每一套 VI 与每一帧图像都能超越视觉表象，精准触达商业价值内核。”
+        </blockquote>
+<div class="w-12 h-[1px] bg-champagne mx-auto mt-6"></div>
+<p class="text-xs text-stonegray tracking-wider uppercase font-mono">
+          Xianyuan Zhang · Visual Strategy &amp; AI Integration
+        </p>
+</div>
+</section>
+<!-- END: PhilosophySection -->
+<!-- BEGIN: ContactSection -->
+<!-- Direct contact card and inquiries block -->
+<section class="py-20" id="contact">
+<div class="border border-charcoal bg-stone-50/50 p-8 sm:p-12 lg:p-16">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-7 space-y-6">
+<span class="text-xs font-cinzel tracking-[0.3em] uppercase text-champagne block">Initiate Conversation</span>
+<h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-charcoal font-bold tracking-tight">
+              探索视觉与商业的<br>无限可能
+            </h2>
+<p class="text-xs sm:text-sm text-stonegray leading-relaxed max-w-lg font-light">企业品牌/内容诊断、工作流设计/企业效率服务</p>
+<div class="pt-4 space-y-3 text-xs">
+<div class="flex items-center space-x-3">
+<span class="w-16 font-mono text-stonegray text-[11px] uppercase tracking-wider">Mobile:</span>
+<a class="text-charcoal font-medium hover:text-champagne transition-colors underline underline-offset-4" href="tel:18214583021">
+                  +86 18214583021
+                </a>
+</div>
+<div class="flex items-center space-x-3">
+<span class="w-16 font-mono text-stonegray text-[11px] uppercase tracking-wider">Email:</span>
+<a class="text-charcoal font-medium hover:text-champagne transition-colors underline underline-offset-4" href="mailto:xiany_2y@163.com">
+                  xiany_2y@163.com
+                </a>
+</div>
+<div class="flex items-center space-x-3">
+<span class="w-16 font-mono text-stonegray text-[11px] uppercase tracking-wider">Location:</span>
+<span class="text-charcoal font-medium">中国 · 云南昆明 (支持全职&amp; 远程线上兼职)</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5 flex flex-col space-y-4">
+<a class="w-full text-center py-5 bg-charcoal text-alabaster text-xs tracking-[0.25em] uppercase font-semibold hover:bg-champagne hover:text-charcoal transition-all duration-300" href="mailto:xiany_2y@163.com?subject=Design%20Inquiry%20from%20Portfolio">
+              发送合作邮件 Send Email
+            </a>
+<a class="w-full text-center py-5 border border-charcoal text-charcoal text-xs tracking-[0.25em] uppercase font-semibold hover:bg-stone-200/50 transition-all duration-300" href="tel:18214583021">
+              电话直接致电 Call Directly
+            </a>
+<p class="text-[10px] text-center text-stonegray tracking-widest mt-2 uppercase">
+              Response typically within 24 business hours
+            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ContactSection -->
+</main>
+<!-- BEGIN: MinimalFooter -->
+<!-- Clean architectural footer with copyright and back-to-top interaction -->
+<footer class="border-t border-hairline py-12 bg-[#F9F8F6]">
+<div class="max-w-[1200px] mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-stonegray">
+<div class="flex flex-col sm:flex-row sm:items-center sm:space-x-4 text-center sm:text-left">
+<span class="font-cinzel tracking-wider text-charcoal font-semibold">© 2026 XIANYUAN ZHANG</span>
+<span class="hidden sm:inline text-stonegray/40">|</span>
+<span class="font-serif">张献元 个人官方作品集与履历档案</span>
+</div>
+<div class="flex items-center space-x-6 text-[11px] font-mono tracking-widest uppercase">
+<a class="hover:text-charcoal transition-colors" href="#about">Top ↑</a>
+<a class="hover:text-charcoal transition-colors" href="#portfolio">Portfolio</a>
+<a class="hover:text-charcoal transition-colors" href="#contact">Contact</a>
+</div>
+</div>
+</footer>
+<!-- END: MinimalFooter -->
+<!-- BEGIN: NavigationScript -->
+<script data-purpose="mobile-navigation-toggle">
+    // Interactive toggling for the responsive mobile navigation menu
+    document.addEventListener('DOMContentLoaded', function () {
+      var mobileBtn = document.getElementById('mobile-menu-btn');
+      var mobileMenu = document.getElementById('mobile-menu');
+      var iconBars = document.getElementById('menu-icon-bars');
+      var iconClose = document.getElementById('menu-icon-close');
+      var navLinks = document.querySelectorAll('.mobile-nav-link');
+
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', function () {
+          var isExpanded = mobileMenu.classList.toggle('hidden');
+          iconBars.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+
+        // Close dropdown when a navigation link is clicked
+        navLinks.forEach(function (link) {
+          link.addEventListener('click', function () {
+            mobileMenu.classList.add('hidden');
+            iconBars.classList.remove('hidden');
+            iconClose.classList.add('hidden');
+          });
+        });
+      }
+    });
+  </script>
+<!-- END: NavigationScript -->
+
+
+
+
+
+
+</body></html>
